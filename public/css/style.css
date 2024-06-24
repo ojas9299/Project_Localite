@@ -1,0 +1,264 @@
+.nav-link {
+  color: #222222 !important;
+}
+
+.navbar {
+  background-color: #ffffff;
+}
+footer {
+  background-color: #fff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.f-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.f-info-socials {
+  margin-bottom: 20px;
+}
+
+.f-info-socials a {
+  color: #333;
+  font-size: 24px;
+  margin: 0 10px;
+}
+
+.f-info-brand {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #333;
+}
+
+.f-info-links {
+  margin-top: 20px;
+}
+
+.f-info-links a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 15px;
+}
+.card-link {
+  text-decoration: none;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.card-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.card-text {
+  font-size: 1rem;
+}
+.card-text.price {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.card-text.location {
+  font-size: 0.9rem;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #f7f7f7;
+}
+.card {
+  max-width: 700px;
+  margin: 40px auto;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.card img {
+  /* border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%; */
+  height: 200px;
+  object-fit: cover;
+}
+.card-body {
+  padding: 20px;
+}
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.btn-small {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+}
+.btn-primary {
+  background-color: #ff5a5f;
+  border: none;
+}
+.btn-danger {
+  background-color: #d93936;
+  border: none;
+}
+.btn-primary,
+.btn-danger {
+  opacity: 0.9;
+}
+.mr-3 {
+  margin-right: 10px;
+}
+.showcard {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.airbnb-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 30px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+.airbnb-card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #484848;
+  margin-bottom: 20px;
+}
+.airbnb-form-control {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ebebeb;
+  padding: 10px;
+  font-size: 1rem;
+  resize: none;
+}
+.airbnb-btn-primary {
+  background-color: #ff5a5f !important;
+  border: none !important;
+  color: #fff !important;
+  padding: 10px 20px !important;
+  font-size: 1rem !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+}
+.airbnb-btn-primary {
+  opacity: 0.9;
+}
+.form-group label {
+  font-weight: 600;
+  color: #484848;
+  margin-bottom: 5px;
+}
+.airbnb-form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.form-group {
+  margin-bottom: 20px;
+}
+label {
+  font-weight: 600;
+  color: #484848;
+}
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+button[type="submit"] {
+  background-color: #ff5a5f;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button[type="submit"] {
+  opacity: 0.9;
+}
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Review form styles */
+.review-form-label {
+  font-weight: bold;
+  color: #484848;
+}
+
+.review-form-textarea,
+.review-form-input {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.review-form-button {
+  background-color: #ff5a5f;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+.review-form-button:hover {
+  background-color: #ff3b3f;
+}
+
+.review-valid-feedback,
+.review-invalid-feedback {
+  display: none;
+}
+
+.was-validated .review-valid-feedback {
+  display: block;
+}
+
+.was-validated .review-invalid-feedback {
+  display: block;
+}
+.listing-image img {
+  max-width: 100%;
+  height: 450px;
+  width: 100%;
+  border-radius: 8px; /* Optional: Adds rounded corners to the image */
+  object-fit: cover;
+}
+.review-box {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.review-box p {
+  margin-bottom: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .review-box {
+    padding: 10px;
+  }
+}

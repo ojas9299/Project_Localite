@@ -1,0 +1,98 @@
+<%-layout("./layouts/boilerplate.ejs")%>
+<div class="container">
+  <div class="card airbnb-card">
+    <div class="card-body">
+      <h2 class="airbnb-card-title">Edit Listing</h2>
+      <form
+        action="/listing/<%= Listing._id %>/?_method=PUT"
+        method="POST"
+        novalidate
+        class="needs-validation"
+      >
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <textarea
+            id="title"
+            name="listing[title]"
+            value=""
+            rows="1"
+            class="form-control airbnb-form-control"
+            required
+          >
+<%= Listing.title %></textarea
+          >
+          <div class="invalid-feedback">Enter valid Title!</div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="listing[description]"
+            rows="4"
+            class="form-control airbnb-form-control"
+            required
+          >
+<%= Listing.description %></textarea
+          >
+          <div class="invalid-feedback">Please enter valid Description</div>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <textarea
+            id="price"
+            type="number"
+            name="listing[price]"
+            rows="1"
+            class="form-control airbnb-form-control"
+            required
+          >
+<%= Listing.price %></textarea
+          >
+          <div class="invalid-feedback">Enter valid price!</div>
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <textarea
+            id="location"
+            name="listing[location]"
+            rows="1"
+            class="form-control airbnb-form-control"
+            required
+          >
+          <%= Listing.location %></textarea
+          >
+          <div class="invalid-feedback">enter valid location</div>
+        </div>
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <textarea
+            id="country"
+            name="listing[country]"
+            rows="1"
+            class="form-control airbnb-form-control"
+            required
+          >
+          <%= Listing.country %></textarea
+          >
+          <div class="invalid-feedback">entry valid country</div>
+        </div>
+        <div class="form-group">
+          <label for="img">Image URL:</label>
+          <textarea
+            id="img"
+            name="listing[image]"
+            rows="1"
+            class="form-control airbnb-form-control"
+            required
+          >
+          <%= Listing.image %></textarea
+          >
+          <div class="invalid-feedback">enter valid image</div>
+        </div>
+        <button type="submit" class="btn airbnb-btn-primary">
+          Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

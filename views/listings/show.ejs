@@ -1,0 +1,115 @@
+<% layout("./layouts/boilerplate") %>
+
+<div class="container-fluid">
+  <div class="container border rounded-3 p-4">
+    <!-- Listing Image Section -->
+    <div class="listing-image">
+      <img
+        src="<%= newlisting.image %>"
+        alt="Listing Image"
+        class="img-fluid rounded"
+      />
+    </div>
+
+    <!-- Listing Details Section -->
+    <div class="listing-details mt-4">
+      <h1><%= newlisting.title %></h1>
+      <p><%= newlisting.description %></p>
+      <p>
+        <strong>Price:</strong> ₹ <%= newlisting.price.toLocaleString("en-IN")
+        %>
+      </p>
+      <div class="clearfix">
+        <div style="float: left">
+          <p><strong>Location:</strong> <%= newlisting.location %></p>
+          <p><strong>Country:</strong> <%= newlisting.country %></p>
+        </div>
+        <!-- Buttons Section -->
+        <div style="float: right">
+          <form action="/listing/<%= newlisting._id %>/edit" method="GET">
+            <button class="btn btn-outline-success px-5">Update</button>
+          </form>
+          <form action="/listing/<%= newlisting._id %>/delete" method="GET">
+            <button class="btn btn-outline-danger px-5">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- Reviews Section -->
+    <div class="reviews-section">
+      <h2>Reviews</h2>
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2">
+          <% newlisting.reviews.forEach(review => { %>
+          <div class="col">
+            <div class="review-box d-flex flex-column justify-content-between">
+              <div>
+                <p><strong>Comment:</strong> <%= review.comment %></p>
+                <p>
+                  <strong>Rating:</strong> <% const fullStars =
+                  Math.floor(review.rating); const emptyStars = 5 - fullStars;
+                  for (let i = 0; i < fullStars; i++) { %>
+                  <i class="bi bi-star-fill text-warning"></i> <% } for (let i =
+                  0; i < emptyStars; i++) { %> <i class="bi bi-star"></i>
+                  <% } %>
+                </p>
+              </div>
+              <form
+                action="/listing/<%=newlisting._id%>/reviews/<%review._id%>?_method=DELETE"
+                method="POSt"
+                class="align-self-end"
+              >
+                <button class="btn btn-md btn-outline-dark rounded-3">
+                  Delete
+                </button>
+              </form>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create New Review Form -->
+    <div class="container-md mt-5 border p-5 rounded-3">
+      <form
+        action="/listings/<%= newlisting._id %>/reviews"
+        method="POST"
+        novalidate
+        class="needs-validation form"
+        id="Form"
+      >
+        <h2>Create New Review</h2>
+        <div class="mb-3">
+          <label for="Comment" class="form-label">Comment</label>
+          <textarea
+            name="review[comment]"
+            id="Comment"
+            class="form-control"
+            rows="4"
+            placeholder="Enter your comment"
+            required
+          ></textarea>
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter a comment.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="Rating" class="form-label">Rating</label>
+          <input
+            name="review[rating]"
+            type="range"
+            class="form-range"
+            min="0"
+            max="5"
+            id="customRange2"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create New Review</button>
+      </form>
+    </div>
+  </div>
+</div>

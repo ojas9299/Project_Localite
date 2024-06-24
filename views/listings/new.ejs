@@ -1,0 +1,95 @@
+<%-layout("./layouts/boilerplate")%>
+<body>
+  <div class="container">
+    <div class="airbnb-form">
+      <h2>Create New Listing</h2>
+      <form action="/listing" method="POST" novalidate class="needs-validation">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="listing[title]"
+            placeholder="Enter title"
+            required
+          />
+          <div class="valid-feedback">noice!</div>
+          <div class="invalid-feedback">Please enter a title.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="listing[description]"
+            placeholder="Enter description"
+            rows="4"
+            required
+          ></textarea>
+          <div class="valid-feedback">voila!</div>
+          <div class="invalid-feedback">Please enter a description.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Image URL:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="img"
+            name="listing[image]"
+            placeholder="Enter image URL"
+          />
+          <div class="valid-feedback">better if add an url</div>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            name="listing[price]"
+            placeholder="Enter price"
+            required
+          />
+          <div class="valid-feedback">niceee!</div>
+          <div class="invalid-feedback">Please enter a price.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="location"
+            name="listing[location]"
+            placeholder="Enter location"
+            required
+          />
+          <div class="valid-feedback">voila!</div>
+          <div class="invalid-feedback">Please enter location</div>
+        </div>
+
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="country"
+            name="listing[country]"
+            placeholder="Enter country"
+            required
+          />
+          <div class="valid-feedback">voila!</div>
+          <div class="invalid-feedback">Please enter valid country</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Create new listing
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
