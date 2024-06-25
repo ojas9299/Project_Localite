@@ -4,7 +4,7 @@
     <div class="card-body">
       <h2 class="airbnb-card-title">Edit Listing</h2>
       <form
-        action="/listing/<%= Listing._id %>/?_method=PUT"
+        action="/listing/<%= listing._id %>/?_method=PUT"
         method="POST"
         novalidate
         class="needs-validation"
@@ -19,7 +19,7 @@
             class="form-control airbnb-form-control"
             required
           >
-<%= Listing.title %></textarea
+<%= listing.title %></textarea
           >
           <div class="invalid-feedback">Enter valid Title!</div>
         </div>
@@ -32,7 +32,7 @@
             class="form-control airbnb-form-control"
             required
           >
-<%= Listing.description %></textarea
+<%= listing.description %></textarea
           >
           <div class="invalid-feedback">Please enter valid Description</div>
         </div>
@@ -46,7 +46,7 @@
             class="form-control airbnb-form-control"
             required
           >
-<%= Listing.price %></textarea
+<%= listing.price %></textarea
           >
           <div class="invalid-feedback">Enter valid price!</div>
         </div>
@@ -59,7 +59,7 @@
             class="form-control airbnb-form-control"
             required
           >
-          <%= Listing.location %></textarea
+          <%= listing.location %></textarea
           >
           <div class="invalid-feedback">enter valid location</div>
         </div>
@@ -72,7 +72,7 @@
             class="form-control airbnb-form-control"
             required
           >
-          <%= Listing.country %></textarea
+          <%= listing.country %></textarea
           >
           <div class="invalid-feedback">entry valid country</div>
         </div>
@@ -85,7 +85,7 @@
             class="form-control airbnb-form-control"
             required
           >
-          <%= Listing.image %></textarea
+          <%= listing.image %></textarea
           >
           <div class="invalid-feedback">enter valid image</div>
         </div>

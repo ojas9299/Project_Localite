@@ -57,7 +57,7 @@
                 </p>
               </div>
               <form
-                action="/listing/<%=newlisting._id%>/reviews/<%review._id%>?_method=DELETE"
+                action="/listing/<%= newlisting._id %>/reviews/<%= review._id %>?_method=DELETE"
                 method="POSt"
                 class="align-self-end"
               >
@@ -75,7 +75,7 @@
     <!-- Create New Review Form -->
     <div class="container-md mt-5 border p-5 rounded-3">
       <form
-        action="/listings/<%= newlisting._id %>/reviews"
+        action="/listing/<%= newlisting._id %>/reviews"
         method="POST"
         novalidate
         class="needs-validation form"
