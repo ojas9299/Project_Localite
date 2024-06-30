@@ -29,7 +29,10 @@
           <form action="/listing/<%= newlisting._id %>/edit" method="GET">
             <button class="btn btn-outline-success px-5">Update</button>
           </form>
-          <form action="/listing/<%= newlisting._id %>/delete" method="GET">
+          <form
+            action="/listing/<%= newlisting._id %>?_method=DELETE"
+            method="POST"
+          >
             <button class="btn btn-outline-danger px-5">Delete</button>
           </form>
         </div>
