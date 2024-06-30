@@ -14,6 +14,7 @@
     <!-- Listing Details Section -->
     <div class="listing-details mt-4">
       <h1><%= newlisting.title %></h1>
+      <p><i>Owned by : <%=newlisting.owner.username%></i></p>
       <p><%= newlisting.description %></p>
       <p>
         <strong>Price:</strong> ₹ <%= newlisting.price.toLocaleString("en-IN")
@@ -25,6 +26,7 @@
           <p><strong>Country:</strong> <%= newlisting.country %></p>
         </div>
         <!-- Buttons Section -->
+        <%if(currUser && currUser.equals(newlisting.owner._id)){%>
         <div style="float: right">
           <form action="/listing/<%= newlisting._id %>/edit" method="GET">
             <button class="btn btn-outline-success px-5">Update</button>
@@ -36,6 +38,7 @@
             <button class="btn btn-outline-danger px-5">Delete</button>
           </form>
         </div>
+        <%}%>
       </div>
     </div>
     <hr />
@@ -49,6 +52,9 @@
           <div class="col">
             <div class="review-box d-flex flex-column justify-content-between">
               <div>
+                <p>
+                  <i>Author : <strong>@<%=review.author.username%></i></strong>
+                </p>
                 <p><strong>Comment:</strong> <%= review.comment %></p>
                 <p>
                   <strong>Rating:</strong> <% const fullStars =
@@ -75,6 +81,7 @@
       </div>
     </div>
 
+    <%if(currUser){%>
     <!-- Create New Review Form -->
     <div class="container-md mt-5 border p-5 rounded-3">
       <form
@@ -114,5 +121,6 @@
         <button type="submit" class="btn btn-primary">Create New Review</button>
       </form>
     </div>
+    <%}%>
   </div>
 </div>

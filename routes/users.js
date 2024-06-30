@@ -47,7 +47,6 @@ router.post(
       let redirectUrl = res.locals.redirectUrl || "/listing"; // Get redirect URL from res.locals or default to /listing
       res.redirect(redirectUrl); // Redirect user to the determined URL
     } catch (err) {
-      console.error("Error in login route:", err);
       req.flash("error", "Failed to log in."); // Set flash message for error
       res.redirect("/login"); // Redirect to /login page on error
     }
