@@ -8,6 +8,7 @@
         method="POST"
         novalidate
         class="needs-validation"
+        enctype="multipart/form-data"
       >
         <div class="form-group">
           <label for="title">Title:</label>
@@ -76,18 +77,20 @@
           >
           <div class="invalid-feedback">entry valid country</div>
         </div>
+        <div class="my-3">
+          <label for="country" class="mb-2">Original Listing Image : </label
+          ><br />
+          <img src="<%=originalImage%>" alt="Image" />
+        </div>
         <div class="form-group">
-          <label for="img">Image URL:</label>
-          <textarea
+          <label for="img">Upload New Image</label>
+          <input
+            type="file"
             id="img"
             name="listing[image]"
             rows="1"
             class="form-control airbnb-form-control"
-            required
-          >
-          <%= listing.image %></textarea
-          >
-          <div class="invalid-feedback">enter valid image</div>
+          />
         </div>
         <button type="submit" class="btn airbnb-btn-primary">
           Save Changes

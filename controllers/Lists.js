@@ -13,8 +13,11 @@ module.exports.NewgetRoute = (req, res) => {
 
 //NEW POST ROUTE
 module.exports.NewPostRoute = async (req, res, next) => {
+  let url = req.file.path;
+  let filename = req.file.filename;
   const newListing = new Listing(req.body.listing);
   newListing.owner = req.user._id;
+  newListing.image = { url, filename };
   await newListing.save();
   req.flash("success", "new Listing Created!");
   res.redirect("/listing");
@@ -28,7 +31,9 @@ module.exports.GetEditRoute = async (req, res) => {
     req.flash("err", "Listing does not exists");
     res.redirect("/listing");
   }
-  res.render("./listings/edit.ejs", { listing });
+  let originalImage = listing.image.url;
+  originalImage = originalImage.replace("/upload", "/upload/h_300,w_250");
+  res.render("./listings/edit.ejs", { listing, originalImage });
 };
 
 //UPDATE ROUTE
@@ -37,11 +42,17 @@ module.exports.PatchRoute = async (req, res) => {
   if (!req.body.listing) {
     throw new ExpressError(400, "Enter valid data for Listing");
   }
-  await Listing.findByIdAndUpdate(
+  let listing = await Listing.findByIdAndUpdate(
     id,
     { ...req.body.listing },
     { runValidators: true, new: true }
   );
+  if (typeof req.file !== "undefined") {
+    let url = req.file.path;
+    let filename = req.file.filename;
+    listing.image = { url, filename };
+    await listing.save();
+  }
   req.flash("updated", "Listing Sucessfuly updated");
   res.redirect("/listing");
 };

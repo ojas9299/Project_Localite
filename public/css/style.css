@@ -1,5 +1,6 @@
 .nav-link {
-  color: #222222 !important;
+  color: #484848 !important;
+  font-weight: 600 !important;
 }
 
 .navbar {
@@ -56,53 +57,7 @@ footer {
 .card-link {
   text-decoration: none;
 }
-body {
-  font-family: "Montserrat", sans-serif;
-}
-.card-title {
-  font-weight: 600;
-  font-size: 1.25rem;
-}
-.card-text {
-  font-size: 1rem;
-}
-.card-text.price {
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-.card-text.location {
-  font-size: 0.9rem;
-}
-body {
-  font-family: "Nunito", sans-serif;
-  background-color: #f7f7f7;
-}
-.card {
-  max-width: 700px;
-  margin: 40px auto;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-.card img {
-  /* border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  width: 100%; */
-  height: 200px;
-  object-fit: cover;
-}
-.card-body {
-  padding: 20px;
-}
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-.card-text {
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
+/* SHOW PAGE STYLES */
 .btn-small {
   padding: 5px 10px;
   font-size: 0.9rem;
@@ -125,6 +80,31 @@ body {
 .showcard {
   margin-top: 100px;
   margin-bottom: 100px;
+}
+
+/* SHOW PAGE STYLES */
+.font-t {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #484848;
+}
+.font-text-show {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #484848;
+}
+
+.main-show-container {
+  max-width: 1260px;
+  padding-left: 50px !important;
+}
+.listing-image img {
+  max-width: 100%;
+  height: 500px;
+  width: 1259px;
+  border-radius: 8px;
+  aspect-ratio: 3/2;
+  object-fit: cover;
 }
 .airbnb-card {
   max-width: 800px;
@@ -248,13 +228,7 @@ button[type="submit"] {
 .was-validated .review-invalid-feedback {
   display: block;
 }
-.listing-image img {
-  max-width: 100%;
-  height: 450px;
-  width: 100%;
-  border-radius: 8px; /* Optional: Adds rounded corners to the image */
-  object-fit: cover;
-}
+
 .review-box {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -272,4 +246,8 @@ button[type="submit"] {
   .review-box {
     padding: 10px;
   }
+}
+
+.logout-btn {
+  background-color: #ff5a5f;
 }

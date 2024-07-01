@@ -2,7 +2,13 @@
 <div class="container">
   <div class="airbnb-form">
     <h2>Create New Listing</h2>
-    <form action="/listing" method="POST" novalidate class="needs-validation">
+    <form
+      action="/listing"
+      method="POST"
+      novalidate
+      class="needs-validation"
+      enctype="multipart/form-data"
+    >
       <div class="form-group">
         <label for="title">Title:</label>
         <input
@@ -32,15 +38,16 @@
       </div>
 
       <div class="form-group">
-        <label for="image">Image URL:</label>
+        <label for="image">Upload Image</label>
         <input
-          type="text"
+          type="file"
           class="form-control"
           id="img"
           name="listing[image]"
-          placeholder="Enter image URL"
+          required
         />
-        <div class="valid-feedback">better if add an url</div>
+        <div class="valid-feedback">voila!</div>
+        <div class="invalid-feedback">Please add an Image for better SEO</div>
       </div>
 
       <div class="form-group">

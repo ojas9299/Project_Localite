@@ -1,33 +1,35 @@
 <% layout("./layouts/boilerplate") %>
 
-<div class="container-fluid">
-  <div class="container border rounded-3 p-4">
-    <!-- Listing Image Section -->
-    <div class="listing-image">
-      <img
-        src="<%= newlisting.image %>"
-        alt="Listing Image"
-        class="img-fluid rounded"
-      />
-    </div>
+<div class="container-fluid main-show-container">
+  <!-- <div class="container border rounded-3 p-4"> -->
+  <!-- Listing Image Section -->
+  <div class="listing-image">
+    <img
+      src="<%= newlisting.image.url %>"
+      alt="Listing Image"
+      class="show-card"
+    />
+  </div>
 
-    <!-- Listing Details Section -->
-    <div class="listing-details mt-4">
-      <h1><%= newlisting.title %></h1>
-      <p><i>Owned by : <%=newlisting.owner.username%></i></p>
-      <p><%= newlisting.description %></p>
-      <p>
-        <strong>Price:</strong> ₹ <%= newlisting.price.toLocaleString("en-IN")
-        %>
-      </p>
+  <!-- Listing Details Section -->
+  <div class="listing-details mt-4">
+    <h1 class="mb-2 font-t"><%= newlisting.title %></h1>
+    <div class="font-text-show">
+      <p><i>Owned by : <%= newlisting.owner.username %></i></p>
+      <p><strong><%= newlisting.description %></strong></p>
       <div class="clearfix">
         <div style="float: left">
           <p><strong>Location:</strong> <%= newlisting.location %></p>
           <p><strong>Country:</strong> <%= newlisting.country %></p>
+          <p>
+            <strong>Price:</strong> ₹ <%=
+            newlisting.price.toLocaleString("en-IN") %>
+          </p>
         </div>
+
         <!-- Buttons Section -->
-        <%if(currUser && currUser.equals(newlisting.owner._id)){%>
-        <div style="float: right">
+        <% if (currUser && currUser.equals(newlisting.owner._id)) { %>
+        <div class="" style="float: right">
           <form action="/listing/<%= newlisting._id %>/edit" method="GET">
             <button class="btn btn-outline-success px-5">Update</button>
           </form>
@@ -38,89 +40,129 @@
             <button class="btn btn-outline-danger px-5">Delete</button>
           </form>
         </div>
-        <%}%>
       </div>
-    </div>
-    <hr />
+      <% } %>
 
-    <!-- Reviews Section -->
-    <div class="reviews-section">
-      <h2>Reviews</h2>
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2">
-          <% newlisting.reviews.forEach(review => { %>
-          <div class="col">
-            <div class="review-box d-flex flex-column justify-content-between">
-              <div>
-                <p>
-                  <i>Author : <strong>@<%=review.author.username%></i></strong>
-                </p>
-                <p><strong>Comment:</strong> <%= review.comment %></p>
-                <p>
-                  <strong>Rating:</strong> <% const fullStars =
-                  Math.floor(review.rating); const emptyStars = 5 - fullStars;
-                  for (let i = 0; i < fullStars; i++) { %>
-                  <i class="bi bi-star-fill text-warning"></i> <% } for (let i =
-                  0; i < emptyStars; i++) { %> <i class="bi bi-star"></i>
-                  <% } %>
-                </p>
-              </div>
-              <form
-                action="/listings/<%= newlisting._id %>/reviews/<%= review._id %>?_method=DELETE"
-                method="POSt"
-                class="align-self-end"
+      <hr />
+
+      <!-- Reviews Section -->
+      <div class="reviews-section">
+        <h2 class="card-title mb-3">Reviews</h2>
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2">
+            <% newlisting.reviews.forEach(review => { %>
+            <div class="col">
+              <div
+                class="review-box d-flex flex-column justify-content-between"
               >
-                <button class="btn btn-md btn-outline-dark rounded-3">
-                  Delete
-                </button>
-              </form>
+                <div>
+                  <p
+                    class="starability-result"
+                    data-rating="<%= review.rating %>"
+                  >
+                    Rated: <%= review.rating %> stars
+                  </p>
+                  <p>Comment : <i><%= review.comment %></i></p>
+                </div>
+                <% if (currUser && currUser.equals(review.author._id)) { %>
+                <form
+                  action="/listings/<%= newlisting._id %>/reviews/<%= review._id %>?_method=DELETE"
+                  method="POST"
+                  class="align-self-end"
+                >
+                  <button class="btn btn-md btn-outline-dark rounded-3">
+                    Delete
+                  </button>
+                </form>
+                <% } %>
+              </div>
             </div>
+            <% }); %>
           </div>
-          <% }); %>
         </div>
       </div>
+      <% if (currUser) { %>
+      <!-- Create New Review Form -->
+      <div class="mt-4 border p-4 rounded">
+        <form
+          action="/listings/<%= newlisting._id %>/reviews"
+          method="POST"
+          novalidate
+          class="needs-validation form"
+          id="Form"
+        >
+          <h2 class="card-title mb-3">Drop a Review!</h2>
+          <div class="mb-3">
+            <label for="Comment" class="form-label">Comment</label>
+            <textarea
+              name="review[comment]"
+              id="Comment"
+              class="form-control"
+              rows="4"
+              placeholder="Enter your comment"
+              required
+            ></textarea>
+            <div class="valid-feedback">Looks good!</div>
+            <div class="invalid-feedback">Please enter a comment.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="Rating" class="form-label">Rating</label>
+            <fieldset class="starability-slot">
+              <input
+                type="radio"
+                id="no-rate"
+                class="input-no-rate"
+                name="review[rating]"
+                value="1"
+                checked
+                aria-label="No rating."
+              />
+              <input
+                type="radio"
+                id="first-rate1"
+                name="review[rating]"
+                value="1"
+              />
+              <label for="first-rate1" title="Terrible">1 star</label>
+              <input
+                type="radio"
+                id="first-rate2"
+                name="review[rating]"
+                value="2"
+              />
+              <label for="first-rate2" title="Not good">2 stars</label>
+              <input
+                type="radio"
+                id="first-rate3"
+                name="review[rating]"
+                value="3"
+              />
+              <label for="first-rate3" title="Average">3 stars</label>
+              <input
+                type="radio"
+                id="first-rate4"
+                name="review[rating]"
+                value="4"
+              />
+              <label for="first-rate4" title="Very good">4 stars</label>
+              <input
+                type="radio"
+                id="first-rate5"
+                name="review[rating]"
+                value="5"
+              />
+              <label for="first-rate5" title="Amazing">5 stars</label>
+            </fieldset>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            Create New Review
+          </button>
+        </form>
+      </div>
+      <% } %>
     </div>
-
-    <%if(currUser){%>
-    <!-- Create New Review Form -->
-    <div class="container-md mt-5 border p-5 rounded-3">
-      <form
-        action="/listings/<%= newlisting._id %>/reviews"
-        method="POST"
-        novalidate
-        class="needs-validation form"
-        id="Form"
-      >
-        <h2>Create New Review</h2>
-        <div class="mb-3">
-          <label for="Comment" class="form-label">Comment</label>
-          <textarea
-            name="review[comment]"
-            id="Comment"
-            class="form-control"
-            rows="4"
-            placeholder="Enter your comment"
-            required
-          ></textarea>
-          <div class="valid-feedback">Looks good!</div>
-          <div class="invalid-feedback">Please enter a comment.</div>
-        </div>
-
-        <div class="mb-3">
-          <label for="Rating" class="form-label">Rating</label>
-          <input
-            name="review[rating]"
-            type="range"
-            class="form-range"
-            min="0"
-            max="5"
-            id="customRange2"
-          />
-        </div>
-
-        <button type="submit" class="btn btn-primary">Create New Review</button>
-      </form>
-    </div>
-    <%}%>
+    <!-- </div> -->
   </div>
 </div>

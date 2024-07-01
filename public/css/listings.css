@@ -1,0 +1,53 @@
+.main-container {
+  max-width: 1260px;
+}
+.card-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+.card-text {
+  font-size: 1rem;
+}
+.card-text.price {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.card-text.location {
+  font-size: 0.9rem;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: #f7f7f7;
+}
+/* Remove border from cards */
+.card.no-border {
+  border: none;
+}
+
+.card {
+  max-width: 700px;
+  margin: 26px auto;
+  border: none;
+}
+.card-img {
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  height: 340px;
+  width: 400px;
+  border-radius: 15px !important;
+}
+.card-body {
+  padding: 20px;
+}
+.card-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #484848;
+  margin-bottom: 15px;
+}
+.card-text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #484848;
+  margin-bottom: 10px;
+}
