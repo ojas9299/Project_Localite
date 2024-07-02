@@ -1,7 +1,6 @@
 <% layout("./layouts/boilerplate") %>
 
 <div class="container-fluid main-show-container">
-  <!-- <div class="container border rounded-3 p-4"> -->
   <!-- Listing Image Section -->
   <div class="listing-image">
     <img
@@ -29,7 +28,7 @@
 
         <!-- Buttons Section -->
         <% if (currUser && currUser.equals(newlisting.owner._id)) { %>
-        <div class="" style="float: right">
+        <div style="float: right">
           <form action="/listing/<%= newlisting._id %>/edit" method="GET">
             <button class="btn btn-outline-success px-5">Update</button>
           </form>
@@ -40,8 +39,8 @@
             <button class="btn btn-outline-danger px-5">Delete</button>
           </form>
         </div>
+        <% } %>
       </div>
-      <% } %>
 
       <hr />
 
@@ -51,7 +50,7 @@
         <div class="container">
           <div class="row row-cols-1 row-cols-sm-2">
             <% newlisting.reviews.forEach(review => { %>
-            <div class="col">
+            <div class="col mb-3">
               <div
                 class="review-box d-flex flex-column justify-content-between"
               >
@@ -81,6 +80,7 @@
           </div>
         </div>
       </div>
+
       <% if (currUser) { %>
       <!-- Create New Review Form -->
       <div class="mt-4 border p-4 rounded">
@@ -163,6 +163,5 @@
       </div>
       <% } %>
     </div>
-    <!-- </div> -->
   </div>
 </div>
