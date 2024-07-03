@@ -71,7 +71,7 @@ body {
 
 .filter {
   margin: 0px 18px;
-  position: relative !important; /* Add relative positioning for pseudo-element */
+  position: relative !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
