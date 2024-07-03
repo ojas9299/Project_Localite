@@ -51,3 +51,42 @@ body {
   color: #484848;
   margin-bottom: 10px;
 }
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+  color: #484848 !important;
+  margin: 0 !important;
+}
+
+.filters {
+  font-size: 13px !important;
+  display: flex !important;
+  /* justify-content: space-around !important; */
+  align-items: center !important;
+  height: 75px !important; /* Fixed height of 75px */
+  background-color: #ffffff !important; /* White background */
+  border-bottom: 1px solid #e0e0e0 !important;
+  padding-left: 130px;
+}
+
+.filter {
+  margin: 0px 15px;
+  position: relative !important; /* Add relative positioning for pseudo-element */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px 5px !important; /* Adjust padding here */
+  cursor: pointer !important;
+  height: 100% !important; /* Fill height of parent container */
+}
+
+.filter i {
+  font-size: 24px !important; /* Reduced size of icons */
+  margin-bottom: 5px !important;
+}
+
+.filter p {
+  margin: 0 !important;
+  font-weight: 500 !important;
+}

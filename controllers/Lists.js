@@ -57,6 +57,27 @@ module.exports.PatchRoute = async (req, res) => {
   res.redirect("/listing");
 };
 
+module.exports.SearchRoute = async (req, res) => {
+  try {
+    const search = req.body.searchValue;
+    let listing = await Listing.findOne({
+      $or: [{ country: search }, { location: search }],
+    });
+
+    if (!listing) {
+      req.flash("error", "Expedition does not exist");
+      return res.redirect("/listing");
+    } else {
+      let id = listing._id;
+      return res.redirect(`/listing/${id}/show`);
+    }
+  } catch (error) {
+    console.error(error);
+    req.flash("error", "An error occurred while searching for the expedition");
+    res.redirect("/listing");
+  }
+};
+
 //SHOW ROUTE
 module.exports.ShowRoute = async (req, res) => {
   const { id } = req.params;

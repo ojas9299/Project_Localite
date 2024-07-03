@@ -2,6 +2,9 @@ if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
+//mongo atlas
+const db_url = process.env.MONGO_ATLAS_URL;
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -10,6 +13,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/expresserror.js");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -31,7 +35,7 @@ app.engine("ejs", ejsMate);
 // SETUP DATABASE
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/Airbnb");
+  await mongoose.connect(db_url);
   console.log("Connection Successful✈️");
 }
 
@@ -41,9 +45,23 @@ main().catch((e) => {
 
 // ======*****SETUP COMPLETE*****======
 
+//mongo store
+const store = MongoStore.create({
+  mongoUrl: db_url,
+  crypto: {
+    secret: process.env.SECRET,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", () => {
+  console.log("error in mongo store ", err);
+});
+
 //sessions
 const sessionOptions = {
-  secret: "secrectcode",
+  store,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {

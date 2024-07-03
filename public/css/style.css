@@ -12,6 +12,30 @@
   backdrop-filter: blur(4.8px);
   -webkit-backdrop-filter: blur(4.8px);
 }
+
+.custom-searchbar {
+  height: 30px; /* Adjust the height as needed */
+  margin: auto; /* Center the search bar */
+}
+.custom-searchbar input {
+  margin-left: 180px !important;
+  height: 100%;
+  padding: 5px 10px; /* Adjust the padding as needed */
+}
+.search-btn {
+  height: 100% !important;
+  padding: 5px 10px !important;
+  display: flex !important;
+}
+/* Initially hide the icon */
+.icon-wrapper {
+  display: none;
+}
+
+.search-btn:hover .icon-wrapper {
+  display: inline-block;
+}
+
 footer {
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.41);

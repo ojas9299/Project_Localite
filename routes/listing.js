@@ -45,6 +45,9 @@ router
   // DELETE listing route
   .delete(isOwner, isLoggedIn, wrapAsync(ListingControllers.DeleteRoute));
 
+// SEARCH ROUTE
+router.post("/search", wrapAsync(ListingControllers.SearchRoute));
+
 // SHOW listing route
 router.get("/:id/show", wrapAsync(ListingControllers.ShowRoute));
 

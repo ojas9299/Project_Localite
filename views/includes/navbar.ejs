@@ -1,5 +1,5 @@
 <nav
-  class="navbar navbar-expand-md bg-body-light py-3 mb-3 border-bottom sticky-top"
+  class="navbar navbar-expand-md bg-body-light py-3 border-bottom sticky-top"
 >
   <div class="container-fluid">
     <a class="navbar-brand d-flex align-items-center" href="/listing">
@@ -10,7 +10,7 @@
         height="44"
         class="d-inline-block align-text-top me-2"
       />
-      <span class="fw-bold text-danger">Airbnb</span>
+      <span class="fw-bold text-danger">Localite</span>
     </a>
 
     <!-- Hamburger icon for mobile view -->
@@ -37,20 +37,40 @@
         <li class="nav-item">
           <a class="nav-link" href="/listing">Explore</a>
         </li>
+        <li class="nav-item custom-searchbar">
+          <form
+            action="/listing/search"
+            method="POST"
+            class="d-flex"
+            role="search"
+          >
+            <input
+              name="searchValue"
+              class="form-control me-2 rounded-pill py-2 px-3"
+              type="search"
+              placeholder="Search Location"
+              aria-label="Search"
+            />
+            <button
+              class="btn btn-outline-danger d-flex align-items-center search-btn rounded-pill"
+              type="submit"
+            >
+              <i class="bi bi-search me-1"></i>
+              <span class="icon-wrapper"> Search </span>
+            </button>
+          </form>
+        </li>
       </ul>
 
       <!-- Individual buttons for Sign In, Login, and Logout -->
       <div class="d-flex">
-        <!-- <li class="nav-item btn">
-          <a class="nav-link" href="/listing/new">Add New Listing</a>
-        </li> -->
         <a href="/listing/new" class="btn nav-link mx-3">Add New Expeditions</a>
-        <%if(!currUser){%>
+        <% if (!currUser) { %>
         <a href="/signup" class="btn nav-link mx-3">Sign In</a>
         <a href="/login" class="btn nav-link mx-3">Login</a>
-        <%} if(currUser){%>
+        <% } if (currUser) { %>
         <a href="/logout" class="btn py-2-warning px-3 nav-link">Logout</a>
-        <%}%>
+        <% } %>
       </div>
     </div>
   </div>

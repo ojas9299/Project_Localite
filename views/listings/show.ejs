@@ -2,7 +2,7 @@
 
 <div class="container-fluid main-show-container">
   <!-- Listing Image Section -->
-  <div class="listing-image">
+  <div class="listing-image mt-5">
     <img
       src="<%= newlisting.image.url %>"
       alt="Listing Image"
@@ -36,7 +36,7 @@
             action="/listing/<%= newlisting._id %>?_method=DELETE"
             method="POST"
           >
-            <button class="btn btn-outline-danger px-5">Delete</button>
+            <button class="btn btn-outline-danger px-5 mt-3">Delete</button>
           </form>
         </div>
         <% } %>
