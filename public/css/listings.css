@@ -66,7 +66,7 @@ body {
   height: 75px !important; /* Fixed height of 75px */
   background-color: #ffffff !important; /* White background */
   border-bottom: 1px solid #e0e0e0 !important;
-  padding-left: 100px;
+  /* padding-left: 100px; */
 }
 
 .filter {
