@@ -3,7 +3,7 @@ const Listing = require("../models/listing.js");
 //all Listings
 module.exports.All = async (req, res) => {
   const listings = await Listing.find();
-  res.render("./listings/listings.ejs", { listings });
+  res.render("listings/listings", { listings });
 };
 
 //NEW GET ROUTE
