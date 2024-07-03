@@ -66,11 +66,11 @@ body {
   height: 75px !important; /* Fixed height of 75px */
   background-color: #ffffff !important; /* White background */
   border-bottom: 1px solid #e0e0e0 !important;
-  padding-left: 130px;
+  padding-left: 100px;
 }
 
 .filter {
-  margin: 0px 15px;
+  margin: 0px 18px;
   position: relative !important; /* Add relative positioning for pseudo-element */
   display: flex !important;
   flex-direction: column !important;
@@ -89,4 +89,11 @@ body {
 .filter p {
   margin: 0 !important;
   font-weight: 500 !important;
+}
+
+@media (max-width: 48rem) {
+  /* Hide desktop-only filters on mobile screens */
+  .desktop-only {
+    display: none !important;
+  }
 }

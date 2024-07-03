@@ -36,6 +36,22 @@
   display: inline-block;
 }
 
+@media (max-width: 48rem) {
+  .custom-searchbar {
+    margin: 15px 0px;
+  }
+  .nav-right {
+    float: right;
+    margin-right: 35px;
+  }
+  .custom-searchbar input {
+    margin-left: 15px !important;
+  }
+  .main-show-container {
+    padding-left: 0px;
+  }
+}
+
 footer {
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.41);
@@ -120,7 +136,7 @@ footer {
 
 .main-show-container {
   max-width: 1260px;
-  padding-left: 50px !important;
+  padding-left: 50px;
 }
 .listing-image img {
   max-width: 100%;

@@ -1,9 +1,9 @@
-<%if(success && success.length){%>
+<% if (success && success.length) { %>
 <div
-  class="alert alert-success alert-dismissible fade show col-6 offset-3 my-3"
+  class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3 my-3 col-12"
   role="alert"
 >
-  <%=success%>
+  <%= success %>
   <button
     type="button"
     class="btn-close"
@@ -11,12 +11,12 @@
     aria-label="Close"
   ></button>
 </div>
-<%}%> <%if(updated && updated.length){%>
+<% } %> <% if (updated && updated.length) { %>
 <div
-  class="alert alert-success alert-dismissible fade show col-6 offset-3 my-3"
+  class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3 my-3 col-12"
   role="alert"
 >
-  <%=updated%>
+  <%= updated %>
   <button
     type="button"
     class="btn-close"
@@ -24,12 +24,12 @@
     aria-label="Close"
   ></button>
 </div>
-<%}%> <%if(reviewCreated && reviewCreated.length){%>
+<% } %> <% if (reviewCreated && reviewCreated.length) { %>
 <div
-  class="alert alert-success alert-dismissible fade show col-6 offset-3 my-3"
+  class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3 my-3 col-12"
   role="alert"
 >
-  <%=reviewCreated%>
+  <%= reviewCreated %>
   <button
     type="button"
     class="btn-close"
@@ -37,13 +37,12 @@
     aria-label="Close"
   ></button>
 </div>
-
-<%}%> <%if(reviewdeleted && reviewdeleted.length){%>
+<% } %> <% if (reviewdeleted && reviewdeleted.length) { %>
 <div
-  class="alert alert-danger alert-dismissible fade show col-6 offset-3 my-3"
+  class="alert alert-danger alert-dismissible fade show col-md-6 offset-md-3 my-3 col-12"
   role="alert"
 >
-  <%=reviewdeleted%>
+  <%= reviewdeleted %>
   <button
     type="button"
     class="btn-close"
@@ -51,28 +50,12 @@
     aria-label="Close"
   ></button>
 </div>
-
-<%}%> <%if(del && del.length){%>
+<% } %> <% if (del && del.length) { %>
 <div
-  class="alert alert-danger alert-dismissible fade show col-6 offset-3 my-3"
+  class="alert alert-danger alert-dismissible fade show col-md-6 offset-md-3 my-3 col-12"
   role="alert"
 >
-  <%=del%>
-  <button
-    type="button"
-    class="btn-close"
-    data-bs-dismiss="alert"
-    aria-label="Close"
-  ></button>
-  <%}%>
-</div>
-
-<%if(err && err.length){%>
-<div
-  class="alert alert-danger alert-dismissible fade show col-6 offset-3 my-3"
-  role="alert"
->
-  <%=err%>
+  <%= del %>
   <button
     type="button"
     class="btn-close"
@@ -80,13 +63,12 @@
     aria-label="Close"
   ></button>
 </div>
-
-<%}%> <%if(usercreated && usercreated.length){%>
+<% } %> <% if (err && err.length) { %>
 <div
-  class="alert alert-success alert-dismissible fade show col-6 offset-3 my-3"
+  class="alert alert-danger alert-dismissible fade show col-md-6 offset-md-3 my-3 col-12"
   role="alert"
 >
-  <%=usercreated%>
+  <%= err %>
   <button
     type="button"
     class="btn-close"
@@ -94,13 +76,12 @@
     aria-label="Close"
   ></button>
 </div>
-
-<%}%> <%if(error && error.length){%>
+<% } %> <% if (usercreated && usercreated.length) { %>
 <div
-  class="alert alert-danger alert-dismissible fade show col-6 offset-3 my-3"
+  class="alert alert-success alert-dismissible fade show col-md-6 offset-md-3 my-3 col-12"
   role="alert"
 >
-  <%=error%>
+  <%= usercreated %>
   <button
     type="button"
     class="btn-close"
@@ -108,5 +89,17 @@
     aria-label="Close"
   ></button>
 </div>
-
-<%}%>
+<% } %> <% if (error && error.length) { %>
+<div
+  class="alert alert-danger alert-dismissible fade show col-md-6 offset-md-3 my-3 col-12"
+  role="alert"
+>
+  <%= error %>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% } %>
