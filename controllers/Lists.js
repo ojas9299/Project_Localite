@@ -60,9 +60,17 @@ module.exports.PatchRoute = async (req, res) => {
 module.exports.SearchRoute = async (req, res) => {
   try {
     const search = req.body.searchValue;
+    console.log(search);
+
+    if (!search) {
+      req.flash("error", "Search value is required");
+      return res.redirect("/listing");
+    }
+
     let listing = await Listing.findOne({
       $or: [{ country: search }, { location: search }],
     });
+    console.log(listing);
 
     if (!listing) {
       req.flash("error", "Expedition does not exist");
@@ -73,6 +81,35 @@ module.exports.SearchRoute = async (req, res) => {
     }
   } catch (error) {
     console.error(error);
+    req.flash("error", "An error occurred while searching for the expedition");
+    res.redirect("/listing");
+  }
+};
+module.exports.SearchRoute = async (req, res) => {
+  try {
+    const search = req.body.searchValue;
+
+    if (!search) {
+      req.flash("error", "Search value is required");
+      return res.redirect("/listing");
+    }
+
+    let listing = await Listing.findOne({
+      $or: [
+        { country: { $regex: new RegExp(search, "i") } },
+        { location: { $regex: new RegExp(search, "i") } },
+      ],
+    });
+
+    if (!listing) {
+      req.flash("error", "Expedition does not exist");
+      return res.redirect("/listing");
+    } else {
+      let id = listing._id;
+      return res.redirect(`/listing/${id}/show`);
+    }
+  } catch (error) {
+    console.error("Error during search:", error);
     req.flash("error", "An error occurred while searching for the expedition");
     res.redirect("/listing");
   }
