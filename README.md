@@ -1,5 +1,4 @@
 # Project_Localite
-Here's a catchy description for your "Localite" app on GitHub:
 
 ---
 
